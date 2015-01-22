@@ -30,6 +30,7 @@ app.get( '/:wrong' , function(req,res){
   counter ++
   console.log(counter)
   var answer = req.params.wrong;
+  console.log(answer)
   var wrongReply = {"incorrect": answer + " is the wrong answer. You are WRONG!"}
   res.send(wrongReply);
 
