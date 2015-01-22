@@ -1,0 +1,21 @@
+<html>
+<head>
+<style type="text/css">
+#map-canvas { height: 600px; width: 800px;}
+</style>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDftClnWiXV_xBDN_MfreEgp3G_E_jJAXY"></script>
+</head>
+<body>
+  <h1>Welcome</h1>
+  <p>The map below displays the coordinates of <%= coordinates["lat"] %> latitude and
+  <%= coordinates["lng"] %> longitude.</p>
+  <div id="map-canvas"></div>
+  <script>
+  var mapOptions = {
+    center: { lat: <%=coordinates["lat"]%>, lng: <%= coordinates["lng"] %>},
+    zoom: 11
+  };
+  var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+  </script>
+</body>
+</html>
