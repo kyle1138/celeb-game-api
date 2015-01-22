@@ -6,7 +6,8 @@ var celeb = {"results":{
   "profession":"Actor",
   "known_for":["classic sitcom bartender" , "film career" , "TV detective" , "political activism"],
   "gender": "male",
-  "first letter of last name" : "h"
+  "first letter of last name" : "h",
+  "hint" : "marijuana advocate"
 
 }}
 
