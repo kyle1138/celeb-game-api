@@ -9,6 +9,7 @@ var celeb = {"results":{
 
 }}
 
+
 app.get( '/' , function(req,res){
 
   res.send(celeb);
@@ -16,15 +17,15 @@ app.get( '/' , function(req,res){
 })
 
 app.get( '/Woody_Harrelson' , function(req,res){
-
-  res.send("You are correct. A winner is you!");
+  var corReply = {"correct": "You are correct. A winner is you!"}
+  res.send(corReply);
 
 })
 
 app.get( '/:wrong' , function(req,res){
   var answer = req.params.wrong;
-  var reply = answer + " is the wrong answer. You are WRONG!"
-  res.send(reply);
+  var wrongReply = {"incorrect": answer + " is the wrong answer. You are WRONG!"}
+  res.send(wrongReply);
 
 })
 
