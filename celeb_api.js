@@ -4,7 +4,7 @@ var counter = 0
 
 var celeb = {"results":{
   "profession":"Actor",
-  "known_for":["80's sitcom" , "film career" , "TV crime drama" , "political activism"],
+  "known_for":["classic sitcom bartender" , "film career" , "TV detective" , "political activism"],
   "gender": "male",
   "first letter of last name" : "h"
 
