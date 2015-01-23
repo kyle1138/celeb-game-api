@@ -1,0 +1,57 @@
+<html>
+
+<body>
+
+
+  <h1>Get the Artist</h1>
+
+  <input id="artiste" />
+  <button id="get">get the tunes</button>
+<div id="main">
+
+
+</div>
+<script>
+
+  var artistToGet = document.getElementById("artiste");
+  var get = document.getElementById("get");
+  var body = document.querySelector("body");
+
+  var main = document.getElementById("main");
+
+
+  get.addEventListener("click" , function(){
+    var xhr = new XMLHttpRequest();
+    var url = "https://api.spotify.com/v1/search?q=artist:";
+    var url_too = "&type=artist";
+    var band = artistToGet.value;
+    var fullQuery = url + band.replace(" " , "+") + url_too;
+    console.log(band);
+
+    console.log(fullQuery);
+    xhr.open("GET" , fullQuery);
+
+    xhr.addEventListener("load" , function(){
+      var data = JSON.parse(xhr.responseText);
+      console.log(data);
+      console.log(data["artists"]);
+      var bandName = document.createElement("h2");
+      bandName.innerText = data["artists"].items[0].name;
+      main.appendChild(bandName);
+      var bandPhoto = document.createElement("img");
+      bandPhoto.src =  data["artists"].items[0].images[1].url;
+      main.appendChild(bandPhoto);
+
+
+
+
+    })
+
+    xhr.send();
+  })
+
+
+</script>
+
+</body>
+</html>

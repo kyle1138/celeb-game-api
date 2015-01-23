@@ -1,0 +1,51 @@
+<html>
+<body>
+
+<h1>Get the GIFS</h1>
+
+<input id="gifsToGet" />
+<button id="get">get the gifs</button>
+
+
+
+
+  <script>
+
+  var gifsToGet = document.getElementById("gifsToGet");
+  var get = document.getElementById("get");
+  var url = "http://api.giphy.com/v1/gifs/search?q="
+  var key = "&api_key=dc6zaTOxFJmzC";
+  var body = document.querySelector("body");
+
+  get.addEventListener("click" , function(){
+    var xhr = new XMLHttpRequest();
+    var query = encodeURI(gifsToGet.value);
+    var fullQuery = url + query + key;
+    xhr.open("GET" , fullQuery);
+
+    console.log(fullQuery);
+    xhr.addEventListener("load", function(){
+
+        var data = JSON.parse(xhr.responseText);
+        var gifArr = data["data"];
+        console.log(data);
+        gifArr.forEach(function(gif){
+          var pic = document.createElement("img");
+          pic.src = gif["images"]["original"]["url"];
+          body.appendChild(pic);
+
+
+
+
+        })
+
+    })
+    xhr.send();
+  })
+
+
+
+
+  </script>
+  </body>
+  </html>
